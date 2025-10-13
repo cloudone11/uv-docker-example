@@ -24,6 +24,8 @@ docker run \
     --volume .:/app \
     --volume /app/.venv \
     --publish 8000:8000 \
+    --publish 5678:5678 \
+    --env DEBUGPY_ALLOW_UNSAFE=true \
     $INTERACTIVE \
     $(docker build -q .) \
     "$@"

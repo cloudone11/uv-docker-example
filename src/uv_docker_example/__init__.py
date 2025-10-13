@@ -1,12 +1,12 @@
 from fastapi import FastAPI
-
 app = FastAPI()
 
 
 def hello():
-    print("Hello world")
+    print("Hello world2")
 
 
 @app.get("/")
 async def root():
-    return "Hello world"
+    hello()
+    return "Hello world5"
