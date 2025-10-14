@@ -28,4 +28,19 @@ docker run \
     --env DEBUGPY_ALLOW_UNSAFE=true \
     $INTERACTIVE \
     $(docker build -q .) \
+    python -m debugpy --listen 0.0.0.0:5678 --wait-for-client -m fastapi dev --host 0.0.0.0 src/uv_docker_example \
     "$@"
+
+# 依赖调试版本
+
+# docker run \
+#     --rm \
+#     --volume .:/app \
+#     --volume /app/.venv \
+#     --publish 8000:8000 \
+#     --publish 5678:5678 \
+#     --env DEBUGPY_ALLOW_UNSAFE=true \
+#     $INTERACTIVE \
+#     $(docker build -q .) \
+#     python -Xfrozen_modules=off -m debugpy --listen 0.0.0.0:5678 --wait-for-client -m fastapi dev --host 0.0.0.0 src/uv_docker_example \
+#     "$@"
