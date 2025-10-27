@@ -3,10 +3,10 @@ app = FastAPI()
 
 
 def hello():
-    print("Hello world2")
+    print("Hello world3")
 
 
 @app.get("/")
 async def root():
     hello()
-    return "Hello world5"
+    return "Hello world6"
